@@ -35,3 +35,28 @@ To run this model:
 
 `python OpenCV_var.py`
 
+
+
+---
+
+## Maximum of Laplacian
+**Using OpenCV2**
+
+An accuracy of **63.58%** is achieved using this method.
+
+`gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) `
+
+`numpy.max(cv2.convertScaleAbs(cv2.Laplacian(gray,3)))`
+
+
+The result of the Laplacian Operator is converted to an absolute scale (0-255).
+The max of the values is taken for each image.
+The threshold is set at 215. Values lower than 215, classify the image as out-of-focus or blurry.
+Greater than 215 is classified as non-blurred.
+
+To run this model:
+
+`python OpenCV_max.py` 
+
+
+---
