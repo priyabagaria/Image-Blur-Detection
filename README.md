@@ -48,6 +48,7 @@ To load and pickle test data and its labels:
 `python load_testdata.py`
 
 A Convolutional Neural Network is trained which yields an accuracy of **67.70%** on the evaluation dataset.
+The deep learning model has five layers.
 This accuracy can further be improved by increasing the input dimensions of the first layer in the model and the number of epochs.
 However, due to constraints related to computational power, I was unable to run the model.
 
@@ -55,9 +56,7 @@ To train the CNN:
 
 `python CNN.py`
 
-The model has five layers:
 
-![alt text] (https://i.imgur.com/tX1qsyP.jpg)
 
 ---
 
