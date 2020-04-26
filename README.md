@@ -64,7 +64,7 @@ To train the CNN:
 ## Maximum of Laplacian
 **Using OpenCV2**
 
-An accuracy of **63.58%** is achieved using this method.
+An accuracy of **63.72%** is achieved using this method.
 
 `gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) `
 
