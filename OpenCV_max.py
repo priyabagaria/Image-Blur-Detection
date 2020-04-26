@@ -15,7 +15,6 @@ import pandas as pd
 import os
 import pickle
 
-from keras.preprocessing import image
 from sklearn.metrics import accuracy_score
 
 
@@ -62,10 +61,9 @@ folderpath = 'CERTH_ImageBlurDataset/EvaluationSet/DigitalBlurSet/'
 for filename in os.listdir(folderpath):
     if filename != '.DS_Store':
         imagepath = folderpath + filename
-        img = image.load_img(imagepath, target_size=input_size)
-        X_test.append(np.asarray(img))
         blur = dgbset[dgbset['MyDigital Blur'] == filename].iloc[0]['Blur Label']
-        gray = cv2.cvtColor(np.asarray(img), cv2.COLOR_BGR2GRAY)
+        gray = cv2.resize(cv2.imread(imagepath, cv2.IMREAD_GRAYSCALE), input_size)
+        X_test.append(gray)
         maxval = np.max(cv2.convertScaleAbs(cv2.Laplacian(gray,3)))
         if maxval < threshold:
             y_pred.append(1)
@@ -92,10 +90,9 @@ folderpath = 'CERTH_ImageBlurDataset/EvaluationSet/NaturalBlurSet/'
 for filename in os.listdir(folderpath):
     if filename != '.DS_Store':
         imagepath = folderpath + filename
-        img = image.load_img(imagepath, target_size=input_size)
-        X_test.append(np.asarray(img))
         blur = nbset[nbset['Image Name'] == filename.split('.')[0]].iloc[0]['Blur Label']
-        gray = cv2.cvtColor(np.asarray(img), cv2.COLOR_BGR2GRAY)
+        gray = cv2.resize(cv2.imread(imagepath, cv2.IMREAD_GRAYSCALE), input_size)
+        X_test.append(gray)
         maxval = np.max(cv2.convertScaleAbs(cv2.Laplacian(gray,3)))
         if maxval < threshold:
             y_pred.append(1)
