@@ -66,7 +66,7 @@ To train the CNN:
 
 An accuracy of **63.72%** is achieved using this method.
 
-`gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) `
+`gray = cv2.resize(cv2.imread(imagepath, cv2.IMREAD_GRAYSCALE), input_size)`
 
 `numpy.max(cv2.convertScaleAbs(cv2.Laplacian(gray,3)))`
 
